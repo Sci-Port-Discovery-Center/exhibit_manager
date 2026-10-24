@@ -118,7 +118,7 @@ export function NotesDialog<T extends "part" | "exhibit">({
         </DialogHeader>
         <div className="mt-4 space-y-4">
           <div className="flex items-center space-x-2">
-            <div className="relative flex-grow">
+            <div className="relative grow">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 type="text"

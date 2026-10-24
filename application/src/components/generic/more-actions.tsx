@@ -107,7 +107,7 @@ export function DeletionConfirmationDialog({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-background/80 backdrop-blur-xs flex items-center justify-center z-50">
       <div
         className="bg-background border border-border rounded-lg shadow-lg p-6 max-w-sm w-full"
         role="dialog"

@@ -1,11 +1,3 @@
-export interface UserProfile {
-  id: string;
-  name: string;
-  given_name: string;
-  family_name: string;
-  picture: string | null;
-}
-
 type Timestamp = { date: string, time: string}
 
 export type Note = { id: string, submitter: string, timestamp: Timestamp; message: string };

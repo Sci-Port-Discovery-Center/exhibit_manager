@@ -1,25 +1,20 @@
 {
-  "$schema": "https://schema.tauri.app/config/1",
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "exhibit_manager",
+  "mainBinaryName": "exhibit_manager",
+  "version": "0.2.1",
+  "identifier": "com.exhibit-manager.app",
   "build": {
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build",
-    "devPath": "http://localhost:1420",
-    "distDir": "../dist"
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420"
   },
-  "package": {
-    "productName": "exhibit_manager",
-    "version": "0.2.1"
-  },
-  "tauri": {
-    "allowlist": {
-      "all": false,
-      "shell": {
-        "all": false,
-        "open": true
-      },
-      "http": {
-        "all": true,
-        "scope": ["http://localhost:3030/*", "https://picsum.photos/*", "http://192.168.1.56:3030/*", "https://accounts.google.com/*", "https://www.googleapis.com/*"]
+  "app": {
+    "security": {
+      "csp": {
+        "connect-src": "ipc: http://ipc.localhost http://localhost:3030 http://192.168.1.56:3030 https://picsum.photos",
+        "img-src": "'self' asset: http://asset.localhost blob: data: https://picsum.photos https://fastly.picsum.photos http://192.168.1.56:3030 http://localhost:3030"
       }
     },
     "windows": [
@@ -28,27 +23,20 @@
         "minWidth": 1700,
         "minHeight": 600,
         "width": 1800,
-        "height": 900
+        "height": 900,
+        "useHttpsScheme": false
       }
-    ],
-    "security": {
-      "csp": {
-        "connect-src": "ipc: http://localhost:3030 http://192.168.1.56:3030 https://picsum.photos",
-        "img-src": "'self' asset: http://asset.localhost blob: data: https://picsum.photos https://fastly.picsum.photos http://192.168.1.56:3030 http://localhost:3030 https://lh3.googleusercontent.com"
-      },
-      "dangerousUseHttpScheme": true
+    ]
   },
-    "bundle": {
-      "active": true,
-      "targets": ["nsis"],
-      "identifier": "com.exhibit-manager.app",
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ]
-    }
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
   }
 }

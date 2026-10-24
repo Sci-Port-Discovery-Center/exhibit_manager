@@ -5,7 +5,7 @@ use crate::repo::exhibit_repo;
 use base64::engine::general_purpose::STANDARD;
 use base64::Engine;
 use log::error;
-use rand::prelude::SliceRandom;
+use rand::prelude::IndexedRandom;
 use rocket::http::Status;
 use rocket::serde::json::Json;
 use rocket::serde::Deserialize;
@@ -21,7 +21,7 @@ fn get_default_image_base64() -> &'static String {
     DEFAULT_IMAGE_BASE64.get_or_init(|| {
         // Read the default image file and encode it as base64
         let image_data = include_bytes!("../../images/DEFAULT_IMAGE.png");
-        let base64_data = base64::encode(&image_data);
+        let base64_data = STANDARD.encode(image_data);
 
         // Add the data URL prefix
         format!("data:image/jpeg;base64,{}", base64_data)
@@ -280,7 +280,7 @@ pub async fn handle_random_exhibit(db_pool: &State<DbPool>) -> Result<Json<Exhib
     match exhibits {
         Some(exhibits) => {
             let random_exhibit = exhibits
-                .choose(&mut rand::thread_rng())
+                .choose(&mut rand::rng())
                 .ok_or(ApiError::NotFound)?
                 .clone();
             Ok(Json(random_exhibit))

@@ -2,6 +2,7 @@ import {
   HashRouter as Router,
   Routes as PrimitiveRoutes,
   Route,
+  Navigate,
 } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppSidebar } from "@/components/app-sidebar";
@@ -13,6 +14,7 @@ import { routes } from "@/routes";
 function Routes() {
   return (
     <PrimitiveRoutes>
+      <Route path="/" element={<Navigate to="/jotforms" replace />} />
       {routes.map((route) =>
         route.sidebar ? (
           <Route
@@ -44,7 +46,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       >
         <AppSidebar routeConfig={routes} />
         <SidebarInset>
-          <div className="mt-[1rem]">{children}</div>
+          <div className="mt-4">{children}</div>
         </SidebarInset>
       </SidebarProvider>
     </div>

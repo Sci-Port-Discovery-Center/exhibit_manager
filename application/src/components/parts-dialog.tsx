@@ -84,7 +84,7 @@ function PartsInnerDialog({ parts }: { parts: string[] }) {
   }
 
   return (
-    <ScrollArea className="h-[50rem] rounded-md">
+    <ScrollArea className="h-200 rounded-md">
       <div className="space-y-2 pr-4">
         {data ? (
           data.map((part) => (

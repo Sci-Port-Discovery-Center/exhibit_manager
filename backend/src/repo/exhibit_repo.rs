@@ -242,8 +242,9 @@ pub async fn update_exhibit(
     query.push_str(&params.join(", "));
     query.push_str(" WHERE id = ?");
 
-    // Build the query dynamically
-    let mut query_builder = sqlx::query::<Sqlite>(&query);
+    // Build the query dynamically. The SQL only contains the fixed column
+    // names above and `?` placeholders; every value is bound below.
+    let mut query_builder = sqlx::query::<Sqlite>(sqlx::AssertSqlSafe(query));
 
     // Bind values in the correct order
     if let Some(name) = &exhibit.name {

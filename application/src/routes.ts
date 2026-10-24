@@ -1,4 +1,3 @@
-import SignIn from "@/screens/sign-in";
 import Exhibits from "@/screens/exhibits";
 import Parts from "@/screens/parts";
 import Jotforms from "@/screens/jotforms";
@@ -21,13 +20,6 @@ export interface RouteConfig {
 }
 
 export const routes: RouteConfig[] = [
-  {
-    url: "/",
-    screen: SignIn,
-    title: "Sign In",
-    isActive: false,
-    sidebar: false,
-  },
   {
     url: "/jotforms",
     screen: Jotforms,

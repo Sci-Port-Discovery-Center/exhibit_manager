@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ExternalLink } from "lucide-react";
+import { openUrl } from "@tauri-apps/plugin-opener";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -36,10 +37,10 @@ export function LinkDisplay({ url }: LinkDisplayProps) {
             className="max-w-[200px]"
             onClick={(e) => {
               e.stopPropagation();
-              window.open(url, "_blank");
+              openUrl(url);
             }}
           >
-            <ExternalLink className="w-4 h-4 mr-2 flex-shrink-0" />
+            <ExternalLink className="w-4 h-4 mr-2 shrink-0" />
             <span className="truncate">{domainName}</span>
           </Button>
         </TooltipTrigger>

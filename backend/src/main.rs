@@ -7,7 +7,7 @@ mod models;
 mod repo;
 
 use db::{create_pool, setup_database, DbPool};
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use log::{error, info};
 use rocket::tokio::time::{sleep, Duration};
 use rocket::{catchers, launch, routes};

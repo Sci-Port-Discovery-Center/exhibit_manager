@@ -5,7 +5,7 @@ import * as z from "zod";
 import { Bug } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import { useGetUserProfile } from "@/hooks/data/queries/useGetProfileInfo";
+import { currentUser } from "@/lib/current-user";
 import { axiosInstance } from "@/api/axiosInstance";
 import {
   Dialog,
@@ -51,7 +51,6 @@ async function reportBug(bug_report: BugReportPayload) {
 export function BugReportDialog() {
   const [isOpen, setIsOpen] = React.useState(false);
   const { toast } = useToast();
-  const { data: profile } = useGetUserProfile();
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -66,7 +65,7 @@ export function BugReportDialog() {
     mutationFn: async (values: FormSchema) => {
       const enrichedBugReport = {
         ...values,
-        name: profile?.given_name,
+        name: currentUser.name,
       };
       return await reportBug(enrichedBugReport);
     },

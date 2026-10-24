@@ -157,10 +157,11 @@ export function JotformsTable({ jotforms }: { jotforms: Array<Jotform> }) {
           {sortedData.map((jotform: Jotform) => (
             <AnimatePresence key={jotform.id}>
               <TableRow
+                key={`${jotform.id}-row`}
                 className={cn(
                   "hover:bg-muted/50 transition-colors",
                   jotform.status === "InProgress" &&
-                    "bg-gradient-to-r from-purple-800/20 to-black/80"
+                    "bg-linear-to-r from-purple-800/20 to-black/80"
                 )}
                 onClick={() => toggleRow(jotform.id)}
               >
@@ -255,6 +256,7 @@ export function JotformsTable({ jotforms }: { jotforms: Array<Jotform> }) {
               </TableRow>
               {expandedRows[jotform.id] && (
                 <motion.tr
+                  key={`${jotform.id}-details`}
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}

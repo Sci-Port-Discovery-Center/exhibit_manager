@@ -46,14 +46,14 @@ export function FilterSection({
 
   return (
     <div className="mb-4 flex flex-col md:flex-row gap-4">
-      <div className="w-full md:w-[41.5rem]">
+      <div className="w-full md:w-166">
         <SearchBar setSearchTerm={setSearchTerm} name={searchBarName} />
       </div>
       <Button
         onClick={toggleFilters}
         className={`w-full md:w-auto ${
           showFilters
-            ? "text-foreground outline outline-1 outline-foreground"
+            ? "text-foreground outline-solid outline-1 outline-foreground"
             : "text-muted-foreground"
         }`}
         variant="outline"

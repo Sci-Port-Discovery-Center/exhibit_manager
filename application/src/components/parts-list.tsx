@@ -91,14 +91,14 @@ export function PartsList({
           {parts.map((part, index) => (
             <div key={part.id}>
               {index > 0 && <div className="h-px bg-border my-2" />}
-              <Card className="border-0 shadow-sm">
+              <Card className="border-0 shadow-xs">
                 <CardContent className="p-3 flex justify-between items-center">
-                  <div className="flex-grow mr-2">
+                  <div className="grow mr-2">
                     <h5 className="font-medium text-sm truncate">
                       {part.name}
                     </h5>
                   </div>
-                  <div className="flex items-center space-x-2 flex-shrink-0">
+                  <div className="flex items-center space-x-2 shrink-0">
                     <LinkDisplay url={part.link} />
                     <Button
                       variant="ghost"
