@@ -13,8 +13,8 @@
   "app": {
     "security": {
       "csp": {
-        "connect-src": "ipc: http://ipc.localhost http://localhost:3030 http://192.168.1.56:3030 https://picsum.photos",
-        "img-src": "'self' asset: http://asset.localhost blob: data: https://picsum.photos https://fastly.picsum.photos http://192.168.1.56:3030 http://localhost:3030"
+        "connect-src": "ipc: http://ipc.localhost http://localhost:3030 https://picsum.photos",
+        "img-src": "'self' asset: http://asset.localhost blob: data: https://picsum.photos https://fastly.picsum.photos http://localhost:3030"
       }
     },
     "windows": [
