@@ -1,9 +1,0 @@
-{
-  "parts_to_edit": [
-    {
-      "file_path": "./src-tauri/tauri.conf.json",
-      "parts": [1]
-    }
-  ],
-  "preprocessor_prompt": "The current tauri.conf.json does not explicitly allow communication with Google's OAuth endpoints. To ensure the application can communicate with Google for authentication, the 'http' allowlist scope should include Google's OAuth endpoints. This change will allow the application to make HTTP requests to Google's OAuth and token endpoints, which are necessary for the authentication flow."
-}

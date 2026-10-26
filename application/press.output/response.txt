@@ -1,1 +1,0 @@
-I've updated the tauri.conf.json to include Google's domains in the HTTP allowlist scope. This should enable communication with Google for authentication purposes. Ensure your application's logic is correctly set up to handle OAuth flows and that you have the necessary client ID and secret from Google.
