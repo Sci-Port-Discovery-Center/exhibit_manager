@@ -1,9 +1,0 @@
-[default]
-address = "127.0.0.1"
-port = 3030
-
-[global.databases]
-sqlite_db = { url = "exhibits.db" }
-
-[default.limits]
-json = "50 MiB"  # Set the limit to 10 MiB or any other value you need

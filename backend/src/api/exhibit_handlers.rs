@@ -268,7 +268,7 @@ pub async fn list_exhibits_handler(
 
     match exhibits {
         Some(exhibits) => Ok(Json(exhibits)),
-        None => Err(ApiError::NotFound),
+        None => Ok(Json(Vec::new())),
     }
 }
 

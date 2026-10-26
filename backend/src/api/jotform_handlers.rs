@@ -34,10 +34,7 @@ pub async fn list_jotforms_handler(
 
     match jotforms {
         Some(jotforms) => Ok(Json(jotforms)),
-        None => {
-            log::error!("No jotforms found in the database.");
-            Err(ApiError::NotFound)
-        }
+        None => Ok(Json(Vec::new())),
     }
 }
 
