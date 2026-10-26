@@ -10,6 +10,10 @@ use std::env;
 use urlencoding::encode;
 use validator::Validate;
 
+/// Bug reports are filed as issues in this repository.
+const REPO_OWNER: &str = "Sci-Port-Discovery-Center";
+const REPO_NAME: &str = "exhibit_manager";
+
 /// Handles the POST /report-bug endpoint.
 ///
 /// This endpoint receives a bug report in JSON format and creates a corresponding issue in a GitHub repository.
@@ -35,10 +39,8 @@ pub async fn report_bug_handler(
     // Load GitHub credentials from environment variables
     let github_token = env::var("GITHUB_TOKEN")
         .map_err(|_| ApiError::MissingEnvVar("GITHUB_TOKEN".to_string()))?;
-    let repo_owner = env::var("GITHUB_REPO_OWNER")
-        .map_err(|_| ApiError::MissingEnvVar("GITHUB_REPO_OWNER".to_string()))?;
-    let repo_name = env::var("GITHUB_REPO_NAME")
-        .map_err(|_| ApiError::MissingEnvVar("GITHUB_REPO_NAME".to_string()))?;
+    let repo_owner = REPO_OWNER;
+    let repo_name = REPO_NAME;
 
     // Prepare the GitHub API URLs
     let issue_url = format!(

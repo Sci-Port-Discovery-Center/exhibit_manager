@@ -43,11 +43,11 @@ JOTFORM_FORM_ID=your-jotform-form-id
 
 # Optional: lets "Report a bug" open GitHub issues
 GITHUB_TOKEN=...
-GITHUB_REPO_OWNER=...
-GITHUB_REPO_NAME=...
 ```
 
 Without the Jotform settings the app still works, but it won't pull in new Jotform submissions. Restart the app after changing this file.
+
+"Report a bug" files issues in [Sci-Port-Discovery-Center/exhibit_manager](https://github.com/Sci-Port-Discovery-Center/exhibit_manager/issues). `GITHUB_TOKEN` must be allowed to create issues there: a fine-grained token with the resource owner set to Sci-Port-Discovery-Center and "Issues: Read and write" on this repository.
 
 ### Moving existing data
 
